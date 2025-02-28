@@ -37,6 +37,12 @@ int TextDisplay::_putc(int value) {
     return value;
 }
 
+void TextDisplay::_printf(char* word, int len){
+    for (int i = 0; i < len; i++){
+        _putc(word[i]);
+    }
+}
+
 // crude cls implementation, should generally be overwritten in derived class
 void TextDisplay::cls() {
     locate(0, 0);
