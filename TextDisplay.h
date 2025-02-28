@@ -59,7 +59,6 @@ public:
     virtual void locate(int column, int row);
     virtual void foreground(uint16_t colour);
     virtual void background(uint16_t colour);
-    virtual void _printf(char* word, int len);
 
     // putc (from Stream)
     // printf (from Stream)
