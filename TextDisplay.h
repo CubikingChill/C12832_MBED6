@@ -31,20 +31,20 @@ public:
     /** output a character at the given position
      *
      * @param column column where charater must be written
-     * @param  row where character must be written
+     * @param row where character must be written
      * @param c the character to be written to the TextDisplay
      */
-    virtual void character(int column, int row, int c) = 0;
+    virtual void character(unsigned int column, unsigned int row, int c) = 0;
 
     /** return number if rows on TextDisplay
      * @result number of rows
      */
-    virtual int rows() = 0;
+    virtual unsigned int rows() = 0;
 
     /** return number if columns on TextDisplay
     * @result number of rows
     */
-    virtual int columns() = 0;
+    virtual unsigned int columns() = 0;
     
     // functions that come for free, but can be overwritten
 
@@ -56,7 +56,7 @@ public:
     /** clear screen
     */
     virtual void cls();
-    virtual void locate(int column, int row);
+    virtual void locate(unsigned int column, unsigned int row);
     virtual void foreground(uint16_t colour);
     virtual void background(uint16_t colour);
 

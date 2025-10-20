@@ -40,12 +40,12 @@ int TextDisplay::_putc(int value) {
 // crude cls implementation, should generally be overwritten in derived class
 void TextDisplay::cls() {
     locate(0, 0);
-    for(int i=0; i<columns()*rows(); i++) {
+    for(unsigned int i=0; i<columns()*rows(); i++) {
         putc(' ');
     }
 }
 
-void TextDisplay::locate(int column, int row) {
+void TextDisplay::locate(unsigned int column, unsigned int row) {
     _column = column;
     _row = row;
 }

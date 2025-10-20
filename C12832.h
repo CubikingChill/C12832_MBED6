@@ -66,14 +66,14 @@ public:
       * @returns width of screen in pixel
       *
       */
-    virtual int width();
+    virtual unsigned int width();
 
     /** Get the height of the screen in pixel
      *
      * @returns height of screen in pixel
      *
      */
-    virtual int height();
+    virtual unsigned int height();
 
     /** Draw a pixel at x,y black or white
      *
@@ -81,7 +81,7 @@ public:
      * @param y vertical position
      * @param colour ,1 set pixel ,0 erase pixel
      */
-    virtual void pixel(int x, int y,int colour);
+    virtual void pixel(unsigned int x, unsigned int y,int colour);
 
     /** draw a circle
       *
@@ -90,7 +90,7 @@ public:
       * @param colour ,1 set pixel ,0 erase pixel
       *
       */
-    void circle(int x, int y, int r, int colour);
+    void circle(unsigned int x, unsigned int y, unsigned int r, int colour);
 
     /** draw a filled circle
      *
@@ -101,7 +101,7 @@ public:
      * use circle with different radius,
      * can miss some pixel
      */
-    void fillcircle(int x, int y, int r, int colour);
+    void fillcircle(unsigned int x, unsigned int y, unsigned int r, int colour);
 
     /** draw a 1 pixel line
       *
@@ -110,7 +110,7 @@ public:
       * @param color ,1 set pixel ,0 erase pixel
       *
       */
-    void line(int x0, int y0, int x1, int y1, int colour);
+    void line(unsigned int x0, unsigned int y0, unsigned int x1, unsigned int y1, int colour);
 
     /** draw a rect
     *
@@ -119,7 +119,7 @@ public:
     * @param color 1 set pixel ,0 erase pixel
     *                                                   *
     */
-    void rect(int x0, int y0, int x1, int y1, int colour);
+    void rect(unsigned int x0, unsigned int y0, unsigned int x1, unsigned int y1, int colour);
 
     /** draw a filled rect
       *
@@ -128,7 +128,7 @@ public:
       * @param color 1 set pixel ,0 erase pixel
       *
       */
-    void fillrect(int x0, int y0, int x1, int y1, int colour);
+    void fillrect(unsigned int x0, unsigned int y0, unsigned int x1, unsigned int y1, int colour);
 
     /** copy display buffer to lcd
       *
@@ -167,7 +167,7 @@ public:
 
     void setmode(int mode);
 
-    virtual int columns(void);
+    virtual unsigned int columns(void);
 
     /** calculate the max number of columns
      *
@@ -175,7 +175,7 @@ public:
      * depends on actual font size
      *
      */
-    virtual int rows(void);
+    virtual unsigned int rows(void);
 
     /** put a char on the screen
      *
@@ -192,14 +192,14 @@ public:
      * @param c char to print
      *
      */
-    virtual void character(int x, int y, int c);
+    virtual void character(unsigned int x, unsigned int y, int c);
 
     /** setup cursor position
      *
      * @param x x-position (top left)
      * @param y y-position
      */
-    virtual void locate(int x, int y);
+    virtual void locate(unsigned int x, unsigned int y);
     
     /** setup auto update of screen 
       *
@@ -247,7 +247,7 @@ public:
       *
       */
 
-    void print_bm(Bitmap bm, int x, int y);
+    void print_bm(Bitmap bm, unsigned int x, unsigned int y);
 
 protected:
 
@@ -259,7 +259,7 @@ protected:
       * @param ,1 set pixel ,0 erase pixel
       *
       */
-    void hline(int x0, int x1, int y, int colour);
+    void hline(unsigned int x0, unsigned int x1, unsigned int y, int colour);
 
     /** draw a vertical line
      *
@@ -268,7 +268,7 @@ protected:
      * @param y1 vertical stop
      * @param ,1 set pixel ,0 erase pixel
      */
-    void vline(int y0, int y1, int x, int colour);
+    void vline(unsigned int y0, unsigned int y1, unsigned int x, int colour);
 
     /** Init the C12832 LCD controller
      *

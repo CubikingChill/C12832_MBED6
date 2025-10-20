@@ -109,11 +109,11 @@ GraphicsDisplay::GraphicsDisplay(const char *name):TextDisplay(name) {
     background(0x0000);
 }
     
-void GraphicsDisplay::character(int column, int row, int value) { 
+void GraphicsDisplay::character(unsigned int column, unsigned int row, int value) { 
     blitbit(column * 8, row * 8, 8, 8, (char*)&(FONT8x8[value - 0x1F][0]));
 }
 
-void GraphicsDisplay::window(int x, int y, int w, int h) {
+void GraphicsDisplay::window(unsigned int x, unsigned int y, unsigned int w, unsigned int h) {
     // current pixel location
     _x = x;
     _y = y;
@@ -138,9 +138,9 @@ void GraphicsDisplay::putp(int colour) {
     }
 }
 
-void GraphicsDisplay::fill(int x, int y, int w, int h, int colour) { 
+void GraphicsDisplay::fill(unsigned int x, unsigned int y, unsigned int w, unsigned int h, int colour) { 
     window(x, y, w, h);
-    for(int i=0; i<w*h; i++) {
+    for(unsigned int i=0; i<w*h; i++) {
         putp(colour);
     }
 }
@@ -149,16 +149,16 @@ void GraphicsDisplay::cls() {
     fill(0, 0, width(), height(), _background);
 }
     
-void GraphicsDisplay::blit(int x, int y, int w, int h, const int *colour) { 
+void GraphicsDisplay::blit(unsigned int x, unsigned int y, unsigned int w, unsigned int h, const int *colour) { 
     window(x, y, w, h);
-    for(int i=0; i<w*h; i++) {
+    for(unsigned int i=0; i<w*h; i++) {
         putp(colour[i]);
     }
 }
     
-void GraphicsDisplay::blitbit(int x, int y, int w, int h, const char* colour) {
+void GraphicsDisplay::blitbit(unsigned int x, unsigned int y, unsigned int w, unsigned int h, const char* colour) {
     window(x, y, w, h);
-    for(int i = 0; i < w*h; i++) {
+    for(unsigned int i = 0; i < w*h; i++) {
         char byte = colour[i >> 3];
         int offset = i & 0x7;
         int c = ((byte << offset) & 0x80) ? _foreground : _background;
@@ -166,11 +166,11 @@ void GraphicsDisplay::blitbit(int x, int y, int w, int h, const char* colour) {
     }
 }
     
-int GraphicsDisplay::columns() { 
+unsigned int GraphicsDisplay::columns() { 
     return width() / 8; 
 }
 
-int GraphicsDisplay::rows() { 
+unsigned int GraphicsDisplay::rows() { 
     return height() / 8; 
 }
 

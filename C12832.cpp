@@ -38,13 +38,13 @@ C12832::C12832(PinName mosi, PinName sck, PinName reset, PinName a0, PinName ncs
 }
 
 
-int C12832::width()
+unsigned int C12832::width()
 {
     if (orientation == 0 || orientation == 2) return 32;
     else return 128;
 }
 
-int C12832::height()
+unsigned int C12832::height()
 {
     if (orientation == 0 || orientation == 2) return 128;
     else return 32;
@@ -137,7 +137,7 @@ void C12832::lcd_reset()
 
 // set one pixel in buffer
 
-void C12832::pixel(int x, int y, int color)
+void C12832::pixel(unsigned int x, unsigned int y, int color)
 {
     // first check parameter
     if(x > 128 || y > 32 || x < 0 || y < 0) return;
@@ -208,7 +208,7 @@ void C12832::cls(void)
 }
 
 
-void C12832::line(int x0, int y0, int x1, int y1, int color)
+void C12832::line(unsigned int x0, unsigned int y0, unsigned int x1, unsigned int y1, int color)
 {
     int   dx = 0, dy = 0;
     int   dx_sym = 0, dy_sym = 0;
@@ -278,7 +278,7 @@ void C12832::line(int x0, int y0, int x1, int y1, int color)
     if(auto_up) copy_to_lcd();
 }
 
-void C12832::rect(int x0, int y0, int x1, int y1, int color)
+void C12832::rect(unsigned int x0, unsigned int y0, unsigned int x1, unsigned int y1, int color)
 {
 
     if (x1 > x0) line(x0,y0,x1,y0,color);
@@ -296,7 +296,7 @@ void C12832::rect(int x0, int y0, int x1, int y1, int color)
     if(auto_up) copy_to_lcd();
 }
 
-void C12832::fillrect(int x0, int y0, int x1, int y1, int color)
+void C12832::fillrect(unsigned int x0, unsigned int y0, unsigned int x1, unsigned int y1, int color)
 {
     int l,c,i;
     if(x0 > x1) {
@@ -321,17 +321,17 @@ void C12832::fillrect(int x0, int y0, int x1, int y1, int color)
 
 
 
-void C12832::circle(int x0, int y0, int r, int color)
+void C12832::circle(unsigned int x0, unsigned int y0, unsigned int r, int color)
 {
 
-    int draw_x0, draw_y0;
-    int draw_x1, draw_y1;
-    int draw_x2, draw_y2;
-    int draw_x3, draw_y3;
-    int draw_x4, draw_y4;
-    int draw_x5, draw_y5;
-    int draw_x6, draw_y6;
-    int draw_x7, draw_y7;
+    unsigned int draw_x0, draw_y0;
+    unsigned int draw_x1, draw_y1;
+    unsigned int draw_x2, draw_y2;
+    unsigned int draw_x3, draw_y3;
+    unsigned int draw_x4, draw_y4;
+    unsigned int draw_x5, draw_y5;
+    unsigned int draw_x6, draw_y6;
+    unsigned int draw_x7, draw_y7;
     int xx, yy;
     int di;
     //WindowMax();
@@ -429,7 +429,7 @@ void C12832::circle(int x0, int y0, int r, int color)
     if(auto_up) copy_to_lcd();
 }
 
-void C12832::fillcircle(int x, int y, int r, int color)
+void C12832::fillcircle(unsigned int x, unsigned int y, unsigned int r, int color)
 {
     int i,up;
     up = auto_up;
@@ -445,7 +445,7 @@ void C12832::setmode(int mode)
     draw_mode = mode;
 }
 
-void C12832::locate(int x, int y)
+void C12832::locate(unsigned int x, unsigned int y)
 {
     char_x = x;
     char_y = y;
@@ -453,14 +453,14 @@ void C12832::locate(int x, int y)
 
 
 
-int C12832::columns()
+unsigned int C12832::columns()
 {
     return width() / font[1];
 }
 
 
 
-int C12832::rows()
+unsigned int C12832::rows()
 {
     return height() / font[2];
 }
@@ -482,7 +482,7 @@ int C12832::_putc(int value)
     return value;
 }
 
-void C12832::character(int x, int y, int c)
+void C12832::character(unsigned int x, unsigned int y, int c)
 {
     unsigned int hor,vert,offset,bpl,j,i,b;
     unsigned char* zeichen;
@@ -540,7 +540,7 @@ unsigned int C12832::get_auto_up(void)
     return (auto_up);
 }
 
-void C12832::print_bm(Bitmap bm, int x, int y)
+void C12832::print_bm(Bitmap bm, unsigned int x, unsigned int y)
 {
     int h,v,b;
     char d;

@@ -22,21 +22,21 @@ public:
           
     GraphicsDisplay(const char* name);
      
-    virtual void pixel(int x, int y, int colour) = 0;
-    virtual int width() = 0;
-    virtual int height() = 0;
+    virtual void pixel(unsigned int x, unsigned int y, int colour) = 0;
+    virtual unsigned int width() = 0;
+    virtual unsigned int height() = 0;
         
-    virtual void window(int x, int y, int w, int h);
+    virtual void window(unsigned int x, unsigned int y, unsigned int w, unsigned int h);
     virtual void putp(int colour);
     
     virtual void cls();
-    virtual void fill(int x, int y, int w, int h, int colour);
-    virtual void blit(int x, int y, int w, int h, const int *colour);    
-    virtual void blitbit(int x, int y, int w, int h, const char* colour);
+    virtual void fill(unsigned int x, unsigned int y, unsigned int w, unsigned int h, int colour);
+    virtual void blit(unsigned int x, unsigned int y, unsigned int w, unsigned int h, const int *colour);    
+    virtual void blitbit(unsigned int x, unsigned int y, unsigned int w, unsigned int h, const char* colour);
     
-    virtual void character(int column, int row, int value);
-    virtual int columns();
-    virtual int rows();
+    virtual void character(unsigned int column, unsigned int row, int value);
+    virtual unsigned int columns();
+    virtual unsigned int rows();
     
 protected:
 
