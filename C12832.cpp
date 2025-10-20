@@ -347,9 +347,7 @@ void C12832::circle(unsigned int x0, unsigned int y0, unsigned int r, int color)
 
     draw_x2 = draw_x3 = x0;
     draw_y2 = draw_y3 = y0 - r;
-    if (draw_y2 >= 0) {
-        pixel(draw_x2, draw_y2, color);    /* 270 degree */
-    }
+    pixel(draw_x2, draw_y2, color);    /* 270 degree */
 
     draw_x4 = draw_x6 = x0 + r;
     draw_y4 = draw_y6 = y0;
@@ -359,9 +357,7 @@ void C12832::circle(unsigned int x0, unsigned int y0, unsigned int r, int color)
 
     draw_x5 = draw_x7 = x0 - r;
     draw_y5 = draw_y7 = y0;
-    if (draw_x5>=0) {
-        pixel(draw_x5, draw_y5, color);     /* 180 degree */
-    }
+    pixel(draw_x5, draw_y5, color);     /* 180 degree */
 
     if (r == 1) {
         return;
@@ -396,11 +392,11 @@ void C12832::circle(unsigned int x0, unsigned int y0, unsigned int r, int color)
         draw_y6--;
         draw_y7--;
 
-        if ( (draw_x0 <= width()) && (draw_y0>=0) ) {
+        if ( (draw_x0 <= width()) ) {
             pixel(draw_x0, draw_y0, color);
         }
 
-        if ( (draw_x1 >= 0) && (draw_y1 >= 0) ) {
+        if ( (draw_x1 >= 0) ) {
             pixel(draw_x1, draw_y1, color);
         }
 
@@ -408,7 +404,7 @@ void C12832::circle(unsigned int x0, unsigned int y0, unsigned int r, int color)
             pixel(draw_x2, draw_y2, color);
         }
 
-        if ( (draw_x3 >=0 ) && (draw_y3 <= height()) ) {
+        if ( (draw_y3 <= height()) ) {
             pixel(draw_x3, draw_y3, color);
         }
 
